@@ -32,6 +32,12 @@ function App() {
     setActivities((prevActivities) => [...prevActivities, activityWithId]);
   };
 
+  const handleDeleteActivity = (id) => {
+    setActivities((prevActivities) =>
+      prevActivities.filter((activity) => activity.id !== id)
+    );
+  };
+
   if (!weather) {
     return <div>Loading...</div>;
   }
@@ -46,12 +52,13 @@ function App() {
   return (
     <div className="App">
       <h2>
-        Current Weather: {weather.conditionEmoji} {weather.temperature}°C
+        {weather.condition} {weather.temperature}°C {weather.isGoodWeather}
       </h2>
       <List
         onAddActivity={handleAddActivity}
         activities={filteredActivities}
         isGoodWeather={isGoodWeather}
+        onDeleteActivity={handleDeleteActivity}
       />
     </div>
   );

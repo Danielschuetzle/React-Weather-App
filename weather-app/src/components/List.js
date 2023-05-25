@@ -4,7 +4,7 @@ import ActivityForm from "./Form";
 const List = ({ onAddActivity, activities, onDeleteActivity }) => {
   return (
     <div>
-      <h1>Weather & Activities App</h1>
+      <h2>Weather & Activities App</h2>
 
       <ActivityForm onAddActivity={onAddActivity} />
 
@@ -12,9 +12,7 @@ const List = ({ onAddActivity, activities, onDeleteActivity }) => {
         {activities.map((activity) => (
           <li key={activity.id}>
             {activity.name}
-            <button onClick={() => onDeleteActivity(activity.id)}>
-              Delete
-            </button>
+            <button onClick={() => onDeleteActivity(activity.id)}>x</button>
           </li>
         ))}
       </ul>
